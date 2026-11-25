@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirigir index.html directamente a /inicio
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^(.*)index\.html$ /$1inicio [R=301,L]
+
+# Si el archivo o carpeta no existe físicamente, cargar index.html para que rutas.js lo proteja
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

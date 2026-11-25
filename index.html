@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AURELIA HAUTE COIFFURE | Alta Cosmética Capilar</title>
-    <!-- Enlace exacto según tu estructura de carpetas -->
+    <!-- Limpia la barra de direcciones al instante -->
+    <script>
+        (function() {
+            var path = window.location.pathname.replace(/\/index\.html$/i, '/');
+            if (window.location.pathname !== path || window.location.hash) {
+                window.history.replaceState(null, '', path || '/');
+            }
+        })();
+
+        function irASeccion(idSeccion) {
+            var titulos = {
+                'inicio': 'AURELIA HAUTE COIFFURE | Alta Cosmética Capilar',
+                'tratamientos': 'Tratamientos Capilares | AURELIA PARIS',
+                'planchas': 'Planchas de Alta Gama | AURELIA PARIS',
+                'rizadoras-secadoras': 'Rizadoras y Secadoras | AURELIA PARIS',
+                'contactame': 'Contáctame VIP | AURELIA PARIS'
+            };
+
+            var elemento = document.getElementById(idSeccion);
+            if (elemento) {
+                elemento.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            if (titulos[idSeccion]) {
+                document.title = titulos[idSeccion];
+            }
+
+            var pathLimpio = window.location.pathname.replace(/\/index\.html$/i, '/') || '/';
+            window.history.replaceState(null, '', pathLimpio);
+        }
+    </script>
     <link rel="stylesheet" href="css/estilos.css">
-    <!-- Fuentes de lujo de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Librería de iconos para redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -20,13 +48,14 @@
 
     <!-- Navegación -->
     <header class="navbar">
-        <div class="logo">AURELIA<span>PARIS</span></div>
+        <a href="javascript:void(0)" onclick="irASeccion('inicio')" class="logo" style="text-decoration: none;">AURELIA<span>PARIS</span></a>
         <nav>
             <ul class="nav-links">
-                <li><a href="#tratamientos">Tratamientos</a></li>
-                <li><a href="#planchas">Planchas</a></li>
-                <li><a href="#rizadoras-secadoras">Rizadoras & Secadoras</a></li>
-                <li><a href="#contactame">Contáctame</a></li>
+                <li><a href="javascript:void(0)" onclick="irASeccion('inicio')">Inicio</a></li>
+                <li><a href="javascript:void(0)" onclick="irASeccion('tratamientos')">Tratamientos</a></li>
+                <li><a href="javascript:void(0)" onclick="irASeccion('planchas')">Planchas</a></li>
+                <li><a href="javascript:void(0)" onclick="irASeccion('rizadoras-secadoras')">Rizadoras & Secadoras</a></li>
+                <li><a href="javascript:void(0)" onclick="irASeccion('contactame')">Contáctame</a></li>
             </ul>
         </nav>
         <button class="cart-btn" onclick="toggleCart()">
@@ -35,12 +64,12 @@
     </header>
 
     <!-- Portada Principal (Hero) -->
-    <section class="hero">
+    <section id="inicio" class="hero">
         <div class="hero-content">
             <p class="subtitle">ALTA INGENIERÍA Y ELIXIRES BOTÁNICOS</p>
             <h1>El Arte de la Perfección Capilar</h1>
             <p class="description">Formulados con caviar negro, oro coloidal y herramientas térmicas de precisión profesional para resultados de salón privado.</p>
-            <a href="#tratamientos" class="btn-gold">Explorar Colección</a>
+            <a href="javascript:void(0)" onclick="irASeccion('tratamientos')" class="btn-gold">Explorar Colección</a>
         </div>
     </section>
 
@@ -308,7 +337,71 @@
         <p class="copyright">&copy; 2026 Aurelia Haute Coiffure. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Enlace exacto a tu archivo JavaScript dentro de la carpeta js -->
-    <script src="js/main.js"></script>
+    <!-- Lógica completa de la Bolsa de Compras integrada -->
+    <script>
+        let cart = [];
+
+        function formatBs(amount) {
+            return 'Bs. ' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-modal').classList.toggle('open');
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name: name, price: price });
+            updateCartUI();
+            document.getElementById('cart-modal').classList.add('open');
+        }
+
+        function updateCartUI() {
+            const count = document.getElementById('cart-count');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            count.textContent = cart.length;
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p class="empty-msg">Tu bolsa de compras está vacía.</p>';
+                totalEl.textContent = 'Bs. 0.00';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach(function(item, index) {
+                total += item.price;
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.name}</strong>
+                            <span>${formatBs(item.price)}</span>
+                        </div>
+                        <button onclick="removeItem(${index})">Eliminar</button>
+                    </div>
+                `;
+            });
+
+            itemsContainer.innerHTML = html;
+            totalEl.textContent = formatBs(total);
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Tu bolsa está vacía. Añade un producto primero.');
+                return;
+            }
+            alert('¡Gracias por tu compra exclusiva en Aurelia Paris! Procesando tu pedido VIP.');
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+    </script>
 </body>
 </html>
