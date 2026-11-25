@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELIA HAUTE COIFFURE | Alta Cosmética Capilar</title>
+    <!-- Enlace exacto según tu estructura de carpetas -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- Fuentes de lujo de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Librería de iconos para redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Barra Superior Promocional -->
+    <div class="top-bar">
+        ENVÍO ASEGURADO DE CORTESÍA EN COMPRAS SUPERIORES A Bs. 1,800 | EDICIÓN LIMITADA ORO 24K
+    </div>
+
+    <!-- Navegación -->
+    <header class="navbar">
+        <div class="logo">AURELIA<span>PARIS</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#tratamientos">Tratamientos</a></li>
+                <li><a href="#planchas">Planchas</a></li>
+                <li><a href="#rizadoras-secadoras">Rizadoras & Secadoras</a></li>
+                <li><a href="#contactame">Contáctame</a></li>
+            </ul>
+        </nav>
+        <button class="cart-btn" onclick="toggleCart()">
+            Bolsa (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <!-- Portada Principal (Hero) -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="subtitle">ALTA INGENIERÍA Y ELIXIRES BOTÁNICOS</p>
+            <h1>El Arte de la Perfección Capilar</h1>
+            <p class="description">Formulados con caviar negro, oro coloidal y herramientas térmicas de precisión profesional para resultados de salón privado.</p>
+            <a href="#tratamientos" class="btn-gold">Explorar Colección</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 1: 5 PRODUCTOS CAPILARES DE LUJO -->
+    <section id="tratamientos" class="catalog-section">
+        <div class="section-header">
+            <span>COLECCIÓN BOTÁNICA & CAVIAR</span>
+            <h2>Tratamientos Capilares Exclusivos</h2>
+            <div class="gold-divider"></div>
+        </div>
+
+        <div class="product-grid">
+            <!-- Producto Capilar 1 -->
+            <article class="product-card">
+                <div class="badge">BEST SELLER</div>
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Elixir Oro 24K">
+                <div class="product-info">
+                    <span class="brand">ORIBE HAUTE</span>
+                    <h3>Elixir Sublimador Oro Líquido 24K</h3>
+                    <p>Sérum reparador intensivo con partículas de oro puro y aceite de argán marroquí prensado en frío.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 1,150.00</span>
+                        <button onclick="addToCart('Elixir Oro Líquido 24K', 1150)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto Capilar 2 -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80" alt="Mascarilla Caviar">
+                <div class="product-info">
+                    <span class="brand">KÉRASTASE CHRONOLOGISTE</span>
+                    <h3>Mascarilla Regeneradora de Caviar Negro</h3>
+                    <p>Reconstrucción celular profunda para fibra capilar dañada. Aporta brillo espejo inmediato.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 1,280.00</span>
+                        <button onclick="addToCart('Mascarilla Caviar Negro', 1280)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto Capilar 3 -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=600&q=80" alt="Champú Trufa Blanca">
+                <div class="product-info">
+                    <span class="brand">ALTERNA LUXURY</span>
+                    <h3>Baño Capilar de Trufa Blanca y Perla</h3>
+                    <p>Limpieza ultra suave libre de sulfatos que equilibra el cuero cabelludo y sella la cutícula.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 920.00</span>
+                        <button onclick="addToCart('Baño de Trufa Blanca', 920)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto Capilar 4 -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=600&q=80" alt="Ampollas Células Madre">
+                <div class="product-info">
+                    <span class="brand">SISLEY HAIR RITUEL</span>
+                    <h3>Cofre Ampollas Células Madre Vegetales</h3>
+                    <p>Tratamiento intensivo de 8 semanas que frena la caída y redensifica el folículo desde la raíz.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 1,850.00</span>
+                        <button onclick="addToCart('Cofre Células Madre', 1850)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto Capilar 5 -->
+            <article class="product-card">
+                <div class="badge">EDICIÓN LIMITADA</div>
+                <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=600&q=80" alt="Bruma de Seda">
+                <div class="product-info">
+                    <span class="brand">BALMAIN PARIS</span>
+                    <h3>Bruma Protectora de Seda y Diamante</h3>
+                    <p>Escudo térmico hasta 230°C con proteínas de seda pura y fragancia exclusiva de alta perfumería.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 990.00</span>
+                        <button onclick="addToCart('Bruma de Seda Balmain', 990)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: 3 PLANCHAS DE MARCA -->
+    <section id="planchas" class="catalog-section dark-burgundy-bg">
+        <div class="section-header">
+            <span>PRECISIÓN TÉRMICA PROFESIONAL</span>
+            <h2>Planchas Alisadoras de Alta Gama</h2>
+            <div class="gold-divider"></div>
+        </div>
+
+        <div class="product-grid">
+            <!-- Plancha 1 -->
+            <article class="product-card">
+                <div class="badge">TECNOLOGÍA FLEXIBLE</div>
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=80" alt="Dyson Corrale">
+                <div class="product-info">
+                    <span class="brand">DYSON</span>
+                    <h3>Dyson Corrale™ Edición Burdeos & Oro</h3>
+                    <p>Placas flexibles de aleación de cobre y manganeso que moldean el cabello con la mitad de daño térmico. Inalámbrica.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 4,450.00</span>
+                        <button onclick="addToCart('Dyson Corrale Edición Oro', 4450)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Plancha 2 -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=600&q=80" alt="ghd Chronos">
+                <div class="product-info">
+                    <span class="brand">GHD PROFESSIONAL</span>
+                    <h3>ghd Chronos™ Styler HD Motion-Responsive</h3>
+                    <p>Sensor inteligente que adapta la potencia 250 veces por segundo para un alisado de una sola pasada con 85% más brillo.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 3,100.00</span>
+                        <button onclick="addToCart('ghd Chronos Styler', 3100)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Plancha 3 -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=600&q=80" alt="L'Oréal Steampod 4">
+                <div class="product-info">
+                    <span class="brand">L'ORÉAL PROFESSIONNEL</span>
+                    <h3>SteamPod 4.0 Tecnología de Vapor</h3>
+                    <p>Alisadora profesional con flujo continuo de vapor seco y placas de cerámica de alta resistencia recubiertas de aluminio.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 3,250.00</span>
+                        <button onclick="addToCart('L\'Oréal SteamPod 4.0', 3250)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: 2 RIZADORAS Y SECADORAS -->
+    <section id="rizadoras-secadoras" class="catalog-section">
+        <div class="section-header">
+            <span>VOLUMEN, ONDAS Y SECADO ULTRARRÁPIDO</span>
+            <h2>Rizadoras y Secadoras de Élite</h2>
+            <div class="gold-divider"></div>
+        </div>
+
+        <div class="product-grid">
+            <!-- Rizadora 1 -->
+            <article class="product-card">
+                <div class="badge">EFECTO COANDA</div>
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=600&q=80" alt="Dyson Airwrap">
+                <div class="product-info">
+                    <span class="brand">DYSON</span>
+                    <h3>Moldeador Multifunción Airwrap™ Complete Long</h3>
+                    <p>Riza, moldea y alisa utilizando aire aerodinámico sin calor extremo. Incluye estuche de cuero vegano burdeos.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 5,200.00</span>
+                        <button onclick="addToCart('Dyson Airwrap Complete', 5200)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Rizadora 2 -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80" alt="T3 Whirl Trio">
+                <div class="product-info">
+                    <span class="brand">T3 MICRO</span>
+                    <h3>Rizador Intercambiable Whirl Trio Gold</h3>
+                    <p>Tres barriles de cerámica turmalina con tecnología Digital T3 SinglePass® para ondas glamurosas duraderas sin frizz.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 2,650.00</span>
+                        <button onclick="addToCart('T3 Whirl Trio Gold', 2650)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Secadora 1 -->
+            <article class="product-card">
+                <div class="badge">MOTOR DIGITAL</div>
+                <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=600&q=80" alt="Dyson Supersonic">
+                <div class="product-info">
+                    <span class="brand">DYSON</span>
+                    <h3>Secadora Dyson Supersonic™ Nural</h3>
+                    <p>Control inteligente de temperatura con sensores ToF que protegen el cuero cabelludo y potencian el brillo natural.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 3,990.00</span>
+                        <button onclick="addToCart('Dyson Supersonic Nural', 3990)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Secadora 2 -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=600&q=80" alt="ghd Helios">
+                <div class="product-info">
+                    <span class="brand">GHD PROFESSIONAL</span>
+                    <h3>Secadora Profesional ghd Helios™ Burdeos</h3>
+                    <p>Motor Brushless de larga duración con tecnología Aeroprecis™ que genera un caudal de aire a 120 km/h ultra silencioso.</p>
+                    <div class="price-row">
+                        <span class="price">Bs. 2,450.00</span>
+                        <button onclick="addToCart('Secadora ghd Helios', 2450)">Añadir</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: CONTÁCTAME (REDES SOCIALES) -->
+    <section id="contactame" class="catalog-section dark-burgundy-bg contact-section">
+        <div class="section-header">
+            <span>ATENCIÓN PERSONALIZADA VIP</span>
+            <h2>Contáctame</h2>
+            <div class="gold-divider"></div>
+            <p class="contact-desc">Asesoramiento exclusivo para elegir el tratamiento o herramienta ideal para tu cabello. Haz clic en tu plataforma preferida para abrir la aplicación directamente:</p>
+        </div>
+
+        <div class="social-grid">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/59170000000?text=Hola,%20quisiera%20información%20sobre%20los%20productos%20de%20Aurelia%20Paris" target="_blank" rel="noopener noreferrer" class="social-card">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <span>Chat Directo VIP</span>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-card">
+                <i class="fa-brands fa-instagram"></i>
+                <h3>Instagram</h3>
+                <span>@aureliaparis.bo</span>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-card">
+                <i class="fa-brands fa-facebook-f"></i>
+                <h3>Facebook</h3>
+                <span>Aurelia Haute Coiffure</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Panel Lateral del Carrito -->
+    <aside id="cart-modal" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Selección Privada</h3>
+            <button class="close-btn" onclick="toggleCart()">✕</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-msg">Tu bolsa de compras está vacía.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total Estimado:</span>
+                <span id="cart-total">Bs. 0.00</span>
+            </div>
+            <button class="btn-gold full-width" onclick="checkout()">Finalizar Compra VIP</button>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">AURELIA<span>PARIS</span></div>
+        <p>Distribuidor Oficial Autorizado de Alta Cosmética y Herramientas Térmicas de Lujo.</p>
+        <p class="copyright">&copy; 2026 Aurelia Haute Coiffure. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script interactivo con formato en Bolivianos -->
+    <script>
+        let cart = [];
+
+        function formatBs(amount) {
+            return 'Bs. ' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-modal').classList.toggle('open');
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+            document.getElementById('cart-modal').classList.add('open');
+        }
+
+        function updateCartUI() {
+            const count = document.getElementById('cart-count');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            count.textContent = cart.length;
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p class="empty-msg">Tu bolsa de compras está vacía.</p>';
+                totalEl.textContent = 'Bs. 0.00';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.name}</strong>
+                            <span>${formatBs(item.price)}</span>
+                        </div>
+                        <button onclick="removeItem(${index})">Eliminar</button>
+                    </div>
+                `;
+            });
+
+            itemsContainer.innerHTML = html;
+            totalEl.textContent = formatBs(total);
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkout() {
+            if (cart.length === 0) return;
+            alert('¡Gracias por tu compra exclusiva en Aurelia Paris! Procesando tu pedido VIP.');
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+    </script>
+</body>
+</html>
